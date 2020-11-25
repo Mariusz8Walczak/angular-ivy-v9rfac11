@@ -1,31 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {LoginService} from '../../shared/services/login.service';
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { LoginService } from "../../shared/services/login.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-
   public loginForm = new FormGroup({
-    login: new FormControl(''),
-    pass: new FormControl(''),
+    login: new FormControl(""),
+    pass: new FormControl("")
   });
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
-    const validPassport = {login: 'login', pass: 'login'};
+    const validPassport = { login: "login", pass: "login" };
 
     if (this.loginForm.value === validPassport) {
+      console.log("logged");
       this.loginService.login();
     }
-
   }
-
 }
