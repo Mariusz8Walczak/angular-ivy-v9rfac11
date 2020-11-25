@@ -14,7 +14,7 @@ export class ItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemService.
+    this.itemService.getItems();
   }
 
 }
